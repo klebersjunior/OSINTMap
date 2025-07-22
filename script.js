@@ -14,19 +14,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Charger la configuration
         await loadConfig();
         
-        // Initialiser la carte
+        // Inicializar o mapa
         initializeMap();
         
-        // Initialiser les événements
+        // Inicializar os eventos
         initializeEventListeners();
         
-        // Peupler les catégories initiales
+        // Popular as categorias iniciais
         populateCategories();
         
-        console.log('Application OSINT initialisée avec succès');
+        console.log('Aplicação OSINT inicializada com sucesso');
     } catch (error) {
-        console.error('Erreur lors de l\'initialisation:', error);
-        showError('Erreur lors de l\'initialisation de l\'application');
+        console.error('Erro na inicialização:', error);
+        showError('Erro na inicialização da aplicação');
     }
 });
 
@@ -35,250 +35,250 @@ async function loadConfig() {
     config = {
         "categories": {
             "amenity": {
-                "label": "Services et équipements",
+                "label": "Serviços e equipamentos",
                 "types": {
-                    "restaurant": "Restaurant",
+                    "restaurant": "Restaurante",
                     "cafe": "Café",
                     "bar": "Bar",
-                    "fast_food": "Restauration rapide",
-                    "bank": "Banque",
-                    "atm": "Distributeur automatique",
-                    "hospital": "Hôpital",
-                    "clinic": "Clinique",
-                    "pharmacy": "Pharmacie",
-                    "school": "École",
-                    "university": "Université",
-                    "library": "Bibliothèque",
-                    "police": "Police",
-                    "fire_station": "Caserne de pompiers",
-                    "post_office": "Bureau de poste",
-                    "townhall": "Mairie",
-                    "fuel": "Station-service",
-                    "parking": "Parking",
-                    "church": "Église",
-                    "mosque": "Mosquée",
-                    "cinema": "Cinéma",
-                    "theatre": "Théâtre"
+                    "fast_food": "Fast food",
+                    "bank": "Banco",
+                    "atm": "Caixa eletrônico",
+                    "hospital": "Hospital",
+                    "clinic": "Clínica",
+                    "pharmacy": "Farmácia",
+                    "school": "Escola",
+                    "university": "Universidade",
+                    "library": "Biblioteca",
+                    "police": "Polícia",
+                    "fire_station": "Corpo de bombeiros",
+                    "post_office": "Correios",
+                    "townhall": "Prefeitura",
+                    "fuel": "Posto de combustível",
+                    "parking": "Estacionamento",
+                    "church": "Igreja",
+                    "mosque": "Mesquita",
+                    "cinema": "Cinema",
+                    "theatre": "Teatro"
                 }
             },
             "highway": {
-                "label": "Routes et transport",
+                "label": "Estradas e transporte",
                 "types": {
-                    "motorway": "Autoroute",
-                    "trunk": "Route nationale",
-                    "primary": "Route principale",
-                    "secondary": "Route secondaire",
-                    "tertiary": "Route tertiaire",
-                    "residential": "Route résidentielle",
-                    "service": "Route de service",
-                    "pedestrian": "Zone piétonne",
-                    "footway": "Chemin piéton",
-                    "cycleway": "Piste cyclable",
-                    "path": "Sentier",
-                    "track": "Piste",
-                    "bus_stop": "Arrêt de bus",
-                    "traffic_signals": "Feux de circulation",
-                    "stop": "Stop",
-                    "give_way": "Cédez le passage",
+                    "motorway": "Rodovia",
+                    "trunk": "Estrada federal",
+                    "primary": "Estrada principal",
+                    "secondary": "Estrada secundária",
+                    "tertiary": "Estrada terciária",
+                    "residential": "Rua residencial",
+                    "service": "Via de serviço",
+                    "pedestrian": "Área de pedestres",
+                    "footway": "Calçada",
+                    "cycleway": "Ciclovia",
+                    "path": "Trilha",
+                    "track": "Pista",
+                    "bus_stop": "Ponto de ônibus",
+                    "traffic_signals": "Semáforo",
+                    "stop": "Pare",
+                    "give_way": "Dê a preferência",
                     "speed_camera": "Radar",
-                    "toll_booth": "Péage",
-                    "bridge": "Pont",
-                    "tunnel": "Tunnel"
+                    "toll_booth": "Pedágio",
+                    "bridge": "Ponte",
+                    "tunnel": "Túnel"
                 }
             },
             "building": {
-                "label": "Bâtiments",
+                "label": "Edifícios",
                 "types": {
-                    "house": "Maison",
-                    "apartment": "Appartement",
-                    "residential": "Résidentiel",
-                    "commercial": "Commercial",
-                    "industrial": "Industriel",
-                    "office": "Bureau",
-                    "retail": "Commerce",
-                    "warehouse": "Entrepôt",
-                    "hospital": "Hôpital",
-                    "school": "École",
-                    "university": "Université",
-                    "church": "Église",
-                    "mosque": "Mosquée",
-                    "hotel": "Hôtel",
-                    "train_station": "Gare",
-                    "public": "Public",
-                    "government": "Gouvernement",
-                    "military": "Militaire",
-                    "police": "Police",
-                    "fire_station": "Caserne de pompiers",
-                    "stadium": "Stade",
-                    "theatre": "Théâtre",
-                    "cinema": "Cinéma",
-                    "museum": "Musée",
-                    "library": "Bibliothèque"
+                    "house": "Casa",
+                    "apartment": "Apartamento",
+                    "residential": "Residencial",
+                    "commercial": "Comercial",
+                    "industrial": "Industrial",
+                    "office": "Escritório",
+                    "retail": "Comércio",
+                    "warehouse": "Depósito",
+                    "hospital": "Hospital",
+                    "school": "Escola",
+                    "university": "Universidade",
+                    "church": "Igreja",
+                    "mosque": "Mesquita",
+                    "hotel": "Hotel",
+                    "train_station": "Estação de trem",
+                    "public": "Público",
+                    "government": "Governo",
+                    "military": "Militar",
+                    "police": "Polícia",
+                    "fire_station": "Corpo de bombeiros",
+                    "stadium": "Estádio",
+                    "theatre": "Teatro",
+                    "cinema": "Cinema",
+                    "museum": "Museu",
+                    "library": "Biblioteca"
                 }
             },
             "natural": {
-                "label": "Éléments naturels",
+                "label": "Elementos naturais",
                 "types": {
-                    "water": "Eau",
-                    "coastline": "Côte",
-                    "beach": "Plage",
-                    "cliff": "Falaise",
-                    "peak": "Sommet",
-                    "volcano": "Volcan",
-                    "cave_entrance": "Entrée de grotte",
-                    "spring": "Source",
-                    "tree": "Arbre",
-                    "wood": "Bois",
-                    "forest": "Forêt",
-                    "grassland": "Prairie",
-                    "wetland": "Zone humide",
-                    "marsh": "Marais",
-                    "rock": "Rocher",
-                    "valley": "Vallée",
-                    "bay": "Baie"
+                    "water": "Água",
+                    "coastline": "Costa",
+                    "beach": "Praia",
+                    "cliff": "Penhasco",
+                    "peak": "Pico",
+                    "volcano": "Vulcão",
+                    "cave_entrance": "Entrada de caverna",
+                    "spring": "Nascente",
+                    "tree": "Árvore",
+                    "wood": "Bosque",
+                    "forest": "Floresta",
+                    "grassland": "Campo",
+                    "wetland": "Área alagada",
+                    "marsh": "Pântano",
+                    "rock": "Rocha",
+                    "valley": "Vale",
+                    "bay": "Baía"
                 }
             },
             "landuse": {
-                "label": "Utilisation du sol",
+                "label": "Uso do solo",
                 "types": {
-                    "residential": "Résidentiel",
-                    "commercial": "Commercial",
-                    "industrial": "Industriel",
-                    "retail": "Commerce de détail",
-                    "education": "Éducation",
-                    "military": "Militaire",
-                    "quarry": "Carrière",
-                    "railway": "Chemin de fer",
-                    "port": "Port",
-                    "airport": "Aéroport",
-                    "forest": "Forêt",
-                    "farmland": "Terre agricole",
-                    "cemetery": "Cimetière"
+                    "residential": "Residencial",
+                    "commercial": "Comercial",
+                    "industrial": "Industrial",
+                    "retail": "Varejo",
+                    "education": "Educação",
+                    "military": "Militar",
+                    "quarry": "Pedreira",
+                    "railway": "Ferrovia",
+                    "port": "Porto",
+                    "airport": "Aeroporto",
+                    "forest": "Floresta",
+                    "farmland": "Terra agrícola",
+                    "cemetery": "Cemitério"
                 }
             },
             "leisure": {
-                "label": "Loisirs et sport",
+                "label": "Lazer e esporte",
                 "types": {
-                    "park": "Parc",
-                    "garden": "Jardin",
-                    "playground": "Aire de jeux",
-                    "sports_centre": "Centre sportif",
-                    "stadium": "Stade",
-                    "swimming_pool": "Piscine",
-                    "swimming_pool_private": "Piscine privée",
-                    "golf_course": "Terrain de golf",
-                    "tennis": "Tennis",
-                    "basketball": "Basketball",
-                    "football": "Football",
+                    "park": "Parque",
+                    "garden": "Jardim",
+                    "playground": "Playground",
+                    "sports_centre": "Centro esportivo",
+                    "stadium": "Estádio",
+                    "swimming_pool": "Piscina",
+                    "swimming_pool_private": "Piscina privada",
+                    "golf_course": "Campo de golfe",
+                    "tennis": "Tênis",
+                    "basketball": "Basquete",
+                    "football": "Futebol",
                     "marina": "Marina",
-                    "beach_resort": "Station balnéaire",
-                    "theme_park": "Parc d'attractions",
-                    "nature_reserve": "Réserve naturelle"
+                    "beach_resort": "Resort de praia",
+                    "theme_park": "Parque de diversões",
+                    "nature_reserve": "Reserva natural"
                 }
             },
             "shop": {
-                "label": "Commerces",
+                "label": "Comércios",
                 "types": {
-                    "supermarket": "Supermarché",
-                    "convenience": "Épicerie",
-                    "mall": "Centre commercial",
-                    "bakery": "Boulangerie",
-                    "butcher": "Boucherie",
-                    "pharmacy": "Pharmacie",
-                    "clothes": "Vêtements",
-                    "shoes": "Chaussures",
-                    "books": "Librairie",
-                    "electronics": "Électronique",
-                    "bicycle": "Vélo",
-                    "car": "Automobile",
-                    "fuel": "Carburant",
-                    "hairdresser": "Coiffeur",
-                    "florist": "Fleuriste"
+                    "supermarket": "Supermercado",
+                    "convenience": "Conveniência",
+                    "mall": "Shopping center",
+                    "bakery": "Padaria",
+                    "butcher": "Açougue",
+                    "pharmacy": "Farmácia",
+                    "clothes": "Roupas",
+                    "shoes": "Calçados",
+                    "books": "Livraria",
+                    "electronics": "Eletrônicos",
+                    "bicycle": "Bicicleta",
+                    "car": "Automóvel",
+                    "fuel": "Combustível",
+                    "hairdresser": "Cabeleireiro",
+                    "florist": "Floricultura"
                 }
             },
             "tourism": {
-                "label": "Tourisme",
+                "label": "Turismo",
                 "types": {
-                    "hotel": "Hôtel",
+                    "hotel": "Hotel",
                     "motel": "Motel",
-                    "guest_house": "Maison d'hôtes",
-                    "hostel": "Auberge de jeunesse",
+                    "guest_house": "Pousada",
+                    "hostel": "Albergue",
                     "camp_site": "Camping",
-                    "attraction": "Attraction",
-                    "museum": "Musée",
-                    "gallery": "Galerie",
-                    "zoo": "Zoo",
-                    "viewpoint": "Point de vue",
-                    "information": "Information touristique"
+                    "attraction": "Atração",
+                    "museum": "Museu",
+                    "gallery": "Galeria",
+                    "zoo": "Zoológico",
+                    "viewpoint": "Mirante",
+                    "information": "Informação turística"
                 }
             },
             "historic": {
-                "label": "Sites historiques",
+                "label": "Sítios históricos",
                 "types": {
-                    "monument": "Monument",
-                    "memorial": "Mémorial",
-                    "archaeological_site": "Site archéologique",
-                    "castle": "Château",
-                    "fort": "Fort",
-                    "ruins": "Ruines",
-                    "tower": "Tour",
-                    "palace": "Palais"
+                    "monument": "Monumento",
+                    "memorial": "Memorial",
+                    "archaeological_site": "Sítio arqueológico",
+                    "castle": "Castelo",
+                    "fort": "Forte",
+                    "ruins": "Ruínas",
+                    "tower": "Torre",
+                    "palace": "Palácio"
                 }
             },
             "military": {
-                "label": "Sites militaires",
+                "label": "Sítios militares",
                 "types": {
-                    "airfield": "Terrain d'aviation militaire",
+                    "airfield": "Campo de aviação militar",
                     "bunker": "Bunker",
-                    "barracks": "Caserne",
-                    "naval_base": "Base navale",
-                    "training_area": "Zone d'entraînement",
-                    "checkpoint": "Poste de contrôle"
+                    "barracks": "Quartel",
+                    "naval_base": "Base naval",
+                    "training_area": "Área de treinamento",
+                    "checkpoint": "Posto de controle"
                 }
             },
             "emergency": {
-                "label": "Services d'urgence",
+                "label": "Serviços de emergência",
                 "types": {
-                    "ambulance_station": "Station d'ambulance",
-                    "fire_hydrant": "Bouche d'incendie",
-                    "defibrillator": "Défibrillateur",
-                    "phone": "Téléphone d'urgence",
-                    "siren": "Sirène"
+                    "ambulance_station": "Base de ambulância",
+                    "fire_hydrant": "Hidrante",
+                    "defibrillator": "Desfibrilador",
+                    "phone": "Telefone de emergência",
+                    "siren": "Sirene"
                 }
             },
             "railway": {
-                "label": "Transport ferroviaire",
+                "label": "Transporte ferroviário",
                 "types": {
-                    "station": "Gare",
-                    "halt": "Halte",
-                    "tram_stop": "Arrêt de tram",
-                    "subway_entrance": "Entrée de métro",
-                    "rail": "Rail",
-                    "subway": "Métro",
-                    "tram": "Tramway",
-                    "light_rail": "Train léger",
-                    "monorail": "Monorail",
-                    "narrow_gauge": "Voie étroite",
-                    "preserved": "Ligne préservée",
-                    "funicular": "Funiculaire",
-                    "miniature": "Train miniature",
-                    "turntable": "Plaque tournante",
-                    "roundhouse": "Rotonde",
-                    "crossing": "Passage à niveau",
-                    "level_crossing": "Passage à niveau",
-                    "signal": "Signal",
-                    "switch": "Aiguillage",
-                    "railway_crossing": "Croisement ferroviaire",
-                    "buffer_stop": "Butoir"
+                    "station": "Estação",
+                    "halt": "Parada",
+                    "tram_stop": "Ponto de bonde",
+                    "subway_entrance": "Entrada do metrô",
+                    "rail": "Trilho",
+                    "subway": "Metrô",
+                    "tram": "Bonde",
+                    "light_rail": "Trem ligeiro",
+                    "monorail": "Monotrilho",
+                    "narrow_gauge": "Bitola estreita",
+                    "preserved": "Linha preservada",
+                    "funicular": "Funicular",
+                    "miniature": "Trem miniatura",
+                    "turntable": "Mesa giratória",
+                    "roundhouse": "Rotunda",
+                    "crossing": "Passagem de nível",
+                    "level_crossing": "Passagem de nível",
+                    "signal": "Sinal",
+                    "switch": "Chave",
+                    "railway_crossing": "Cruzamento ferroviário",
+                    "buffer_stop": "Para-choque"
                 }
             },
             "public_transport": {
-                "label": "Transport public",
+                "label": "Transporte público",
                 "types": {
-                    "stop_position": "Position d'arrêt",
-                    "platform": "Quai",
-                    "station": "Station",
-                    "stop_area": "Zone d'arrêt"
+                    "stop_position": "Posição de parada",
+                    "platform": "Plataforma",
+                    "station": "Estação",
+                    "stop_area": "Área de parada"
                 }
             }
         },
@@ -355,10 +355,10 @@ function initializeMap() {
         // Créer un groupe de marqueurs
         markersLayer = L.layerGroup().addTo(map);
         
-        console.log('Carte initialisée avec succès');
+        console.log('Mapa inicializado com sucesso');
     } catch (error) {
-        console.error('Erreur lors de l\'initialisation de la carte:', error);
-        showError('Erreur lors de l\'initialisation de la carte');
+        console.error('Erro na inicialização do mapa:', error);
+        showError('Erro na inicialização do mapa');
     }
 }
 
@@ -387,15 +387,15 @@ function initializeEventListeners() {
         }, 100);
 }
 
-// Peupler les catégories dans le premier dropdown
+// Popular as categorias no primeiro dropdown
 function populateCategories() {
     const categorySelect = document.querySelector('.category');
     if (!categorySelect) return;
     
-    // Vider les options existantes sauf la première
-    categorySelect.innerHTML = '<option value="">Sélectionner une catégorie</option>';
+    // Limpar as opções existentes exceto a primeira
+    categorySelect.innerHTML = '<option value="">Selecionar uma categoria</option>';
     
-    // Ajouter les catégories depuis la configuration
+    // Adicionar as categorias da configuração
     Object.keys(config.categories).forEach(categoryKey => {
         const category = config.categories[categoryKey];
         const option = document.createElement('option');
@@ -405,7 +405,7 @@ function populateCategories() {
     });
 }
 
-// Gérer les changements dans le formulaire
+// Gerenciar mudanças no formulário
 function handleFormChange(event) {
     if (event.target.classList.contains('category')) {
         updateTypesContainer(event.target);
@@ -414,18 +414,18 @@ function handleFormChange(event) {
     }
 }
 
-// Mettre à jour le container des types avec cases à cocher
+// Atualizar o container dos tipos com caixas de seleção
 function updateTypesContainer(categorySelect) {
     const typesContainer = categorySelect.closest('.condition-fields').querySelector('.types-container');
     if (!typesContainer) return;
     
     const selectedCategory = categorySelect.value;
     
-    // Vider le container
+    // Limpar o container
     typesContainer.innerHTML = '';
     
     if (!selectedCategory || !config.categories[selectedCategory]) {
-        typesContainer.innerHTML = '<p class="no-types">Sélectionnez d\'abord une catégorie</p>';
+        typesContainer.innerHTML = '<p class="no-types">Selecione primeiro uma categoria</p>';
         typesContainer.classList.add('empty');
         return;
     }
@@ -433,7 +433,7 @@ function updateTypesContainer(categorySelect) {
     typesContainer.classList.remove('empty');
     const types = config.categories[selectedCategory].types;
     
-    // Générer un ID unique basé sur le contexte
+    // Gerar um ID único baseado no contexto
     let uniqueId;
     if (categorySelect.closest('.main-search')) {
         uniqueId = 'main';
@@ -464,7 +464,7 @@ function updateTypesContainer(categorySelect) {
     });
 }
 
-// Mettre à jour l'input de nom selon le mode sélectionné
+// Atualizar o input de nome conforme o modo selecionado
 function updateNameInput(nameModeSelect) {
     const nameInput = nameModeSelect.parentElement.querySelector('.name');
     if (!nameInput) return;
@@ -474,18 +474,18 @@ function updateNameInput(nameModeSelect) {
     if (mode === '') {
         nameInput.disabled = true;
         nameInput.value = '';
-        nameInput.placeholder = 'Texte à rechercher';
+        nameInput.placeholder = 'Texto a pesquisar';
     } else {
         nameInput.disabled = false;
         switch (mode) {
             case 'exact':
-                nameInput.placeholder = 'Nom exact à rechercher';
+                nameInput.placeholder = 'Nome exato a pesquisar';
                 break;
             case 'contains':
-                nameInput.placeholder = 'Texte contenu dans le nom';
+                nameInput.placeholder = 'Texto contido no nome';
                 break;
             case 'starts':
-                nameInput.placeholder = 'Début du nom';
+                nameInput.placeholder = 'Início do nome';
                 break;
         }
     }
@@ -511,37 +511,37 @@ function addCondition() {
             
             <div class="condition-fields">
                 <div class="field-group">
-                    <label>Catégorie :</label>
+                    <label>Categoria:</label>
                     <select class="category" name="category${conditionCount}" required>
-                        <option value="">Sélectionner une catégorie</option>
+                        <option value="">Selecionar uma categoria</option>
                     </select>
                 </div>
                 
                 <div class="field-group">
-                    <label>Types (sélection multiple) :</label>
+                    <label>Tipos (seleção múltipla):</label>
                     <div class="types-container" name="types${conditionCount}">
-                        <p class="no-types">Sélectionnez d'abord une catégorie</p>
+                        <p class="no-types">Selecione primeiro uma categoria</p>
                     </div>
                 </div>
                 
                 <div class="field-group">
-                    <label>Recherche par nom (optionnel) :</label>
+                    <label>Pesquisa por nome (opcional):</label>
                     <div class="name-search">
                         <select class="name-mode" name="nameMode${conditionCount}">
-                            <option value="">Ignorer le nom</option>
-                            <option value="exact">Nom exact</option>
-                            <option value="contains">Contient</option>
-                            <option value="starts">Commence par</option>
+                            <option value="">Ignorar o nome</option>
+                            <option value="exact">Nome exato</option>
+                            <option value="contains">Contém</option>
+                            <option value="starts">Começa com</option>
                         </select>
-                        <input type="text" class="name" name="name${conditionCount}" placeholder="Texte à rechercher" disabled>
+                        <input type="text" class="name" name="name${conditionCount}" placeholder="Texto a pesquisar" disabled>
                     </div>
                 </div>
                 
                 <div class="field-group">
-                    <label>Distance de recherche :</label>
+                    <label>Distância de pesquisa:</label>
                     <div class="distance-input">
                         <input type="number" class="distance" name="distance${conditionCount}" min="1" max="50000" value="1000">
-                        <span class="unit">mètres</span>
+                        <span class="unit">metros</span>
                     </div>
                 </div>
             </div>
@@ -550,7 +550,7 @@ function addCondition() {
     
     conditionsContainer.appendChild(newConditionGroup);
     
-    // Peupler les catégories pour la nouvelle condition
+            // Popular as categorias para a nova condição
     const newCategorySelect = newConditionGroup.querySelector('.category');
     populateCategorySelect(newCategorySelect);
     
@@ -558,9 +558,9 @@ function addCondition() {
     updateRemoveButtons();
 }
 
-// Peupler un select de catégorie spécifique
+// Popular um select de categoria específico
 function populateCategorySelect(categorySelect) {
-    categorySelect.innerHTML = '<option value="">Sélectionner une catégorie</option>';
+    categorySelect.innerHTML = '<option value="">Selecionar uma categoria</option>';
     
     Object.keys(config.categories).forEach(categoryKey => {
         const category = config.categories[categoryKey];
@@ -606,37 +606,37 @@ function clearAllConditions() {
                 
                 <div class="condition-fields">
                     <div class="field-group">
-                        <label>Catégorie :</label>
+                        <label>Categoria:</label>
                         <select class="category" name="category1" required>
-                            <option value="">Sélectionner une catégorie</option>
+                            <option value="">Selecionar uma categoria</option>
                         </select>
                     </div>
                     
                     <div class="field-group">
-                        <label>Types (sélection multiple) :</label>
+                        <label>Tipos (seleção múltipla):</label>
                         <div class="types-container" name="types1">
-                            <p class="no-types">Sélectionnez d'abord une catégorie</p>
+                            <p class="no-types">Selecione primeiro uma categoria</p>
                         </div>
                     </div>
                     
                     <div class="field-group">
-                        <label>Recherche par nom (optionnel) :</label>
+                        <label>Pesquisa por nome (opcional):</label>
                         <div class="name-search">
                             <select class="name-mode" name="nameMode1">
-                                <option value="">Ignorer le nom</option>
-                                <option value="exact">Nom exact</option>
-                                <option value="contains">Contient</option>
-                                <option value="starts">Commence par</option>
+                                <option value="">Ignorar o nome</option>
+                                <option value="exact">Nome exato</option>
+                                <option value="contains">Contém</option>
+                                <option value="starts">Começa com</option>
                             </select>
-                            <input type="text" class="name" name="name1" placeholder="Texte à rechercher" disabled>
+                            <input type="text" class="name" name="name1" placeholder="Texto a pesquisar" disabled>
                         </div>
                     </div>
                     
                     <div class="field-group">
-                        <label>Distance de recherche :</label>
+                        <label>Distância de pesquisa:</label>
                         <div class="distance-input">
                             <input type="number" class="distance" name="distance1" min="100" max="50000" value="1000">
-                            <span class="unit">mètres</span>
+                            <span class="unit">metros</span>
                         </div>
                     </div>
                 </div>
@@ -672,21 +672,21 @@ async function handleFormSubmit(event) {
         // Construire la requête selon le nouveau style
         const query = buildNewStyleQuery();
         
-        // Afficher la requête
+        // Exibir a consulta
         document.getElementById('queryDisplay').textContent = query;
         
-        // Exécuter la recherche
+        // Executar a pesquisa
         const results = await executeOverpassQuery(query);
         
-        // Afficher les résultats
+        // Exibir os resultados
         displayResults(results);
         
-        // Préparer les exports
+        // Preparar as exportações
         prepareExports(results);
         
     } catch (error) {
-        console.error('Erreur lors de la recherche:', error);
-        showError('Erreur lors de la recherche: ' + error.message);
+        console.error('Erro na pesquisa:', error);
+        showError('Erro na pesquisa: ' + error.message);
     } finally {
         showLoading(false);
     }
@@ -803,22 +803,22 @@ async function executeOverpassQuery(query) {
             });
             
             if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
+                throw new Error(`Erro HTTP: ${response.status}`);
             }
             
             const data = await response.json();
             
             if (data.elements) {
-                console.log(`Requête réussie sur ${serverUrl}, ${data.elements.length} éléments trouvés`);
+                console.log(`Consulta bem-sucedida em ${serverUrl}, ${data.elements.length} elementos encontrados`);
                 return data;
             } else {
-                throw new Error('Réponse invalide du serveur');
+                throw new Error('Resposta inválida do servidor');
             }
             
         } catch (error) {
-            console.warn(`Échec sur ${serverUrl}:`, error);
+            console.warn(`Falha em ${serverUrl}:`, error);
             if (serverUrl === servers[servers.length - 1]) {
-                throw new Error('Tous les serveurs Overpass sont indisponibles');
+                throw new Error('Todos os servidores Overpass estão indisponíveis');
             }
         }
     }
@@ -901,9 +901,9 @@ function displayResults(data) {
             
             // Créer le popup
             const tags = element.tags || {};
-            const name = tags.name || 'Sans nom';
-            const category = Object.keys(tags).find(key => config.categories[key]) || 'Inconnu';
-            const type = tags[category] || 'Non spécifié';
+            const name = tags.name || 'Sem nome';
+            const category = Object.keys(tags).find(key => config.categories[key]) || 'Desconhecido';
+            const type = tags[category] || 'Não especificado';
             
             // Ajouter l'information du type d'élément dans le popup
             const elementTypeLabel = getElementTypeLabel(elementType);
@@ -911,13 +911,13 @@ function displayResults(data) {
             const popupContent = `
                 <div>
                     <h4>${name}</h4>
-                    <p><strong>Type:</strong> ${type}</p>
-                    <p><strong>Catégorie:</strong> ${category}</p>
-                    <p><strong>Rôle:</strong> <span style="color: ${markerColor}; font-weight: bold;">${elementTypeLabel}</span></p>
-                    <p><strong>Coordonnées:</strong> ${lat.toFixed(6)}, ${lon.toFixed(6)}</p>
+                    <p><strong>Tipo:</strong> ${type}</p>
+                    <p><strong>Categoria:</strong> ${category}</p>
+                    <p><strong>Papel:</strong> <span style="color: ${markerColor}; font-weight: bold;">${elementTypeLabel}</span></p>
+                    <p><strong>Coordenadas:</strong> ${lat.toFixed(6)}, ${lon.toFixed(6)}</p>
                     <div style="margin-top: 10px;">
                         <a href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=18" target="_blank" style="margin-right: 10px;">
-                            <i class="fas fa-map"></i> Voir sur OSM
+                            <i class="fas fa-map"></i> Ver no OSM
                         </a>
                         <a href="https://www.google.com/maps/@${lat},${lon},18z" target="_blank">
                             <i class="fas fa-street-view"></i> Street View
@@ -943,11 +943,11 @@ function displayResults(data) {
     // Afficher le nombre de résultats valides avec répartition par type
     const resultsCount = document.getElementById('resultsCount');
     const typeBreakdown = getResultsBreakdown(validElements);
-    resultsCount.innerHTML = `${validElementsCount} résultat(s) trouvé(s)<br><small>${typeBreakdown}</small>`;
+    resultsCount.innerHTML = `${validElementsCount} resultado(s) encontrado(s)<br><small>${typeBreakdown}</small>`;
     resultsCount.style.display = 'block';
     
     if (validElementsCount === 0) {
-        showError('Aucun résultat trouvé pour cette recherche');
+        showError('Nenhum resultado encontrado para esta pesquisa');
         hideResultsList();
         return;
     }
@@ -1034,19 +1034,19 @@ function determineElementType(element, searchData) {
 function getElementTypeLabel(elementType) {
     switch (elementType) {
         case 'main':
-            return '🎯 Résultat principal';
+            return '🎯 Resultado principal';
         case 'complement1':
-            return '🟢 Complément 1';
-        case 'complement2':
-            return '🟠 Complément 2';
-        case 'complement3':
-            return '🔴 Complément 3';
-        case 'complement4':
-            return '🟣 Complément 4';
-        case 'complement5':
-            return '🟡 Complément 5';
+                    return '🟢 Complemento 1';
+    case 'complement2':
+        return '🟠 Complemento 2';
+    case 'complement3':
+        return '🔴 Complemento 3';
+    case 'complement4':
+        return '🟣 Complemento 4';
+    case 'complement5':
+        return '🟡 Complemento 5';
         default:
-            return '📍 Élément';
+            return '📍 Elemento';
     }
 }
 
@@ -1061,14 +1061,14 @@ function getResultsBreakdown(elements) {
     
     const parts = [];
     if (breakdown.main) {
-        parts.push(`🎯 ${breakdown.main} principal(aux)`);
+        parts.push(`🎯 ${breakdown.main} principal(ais)`);
     }
     
     for (let i = 1; i <= 5; i++) {
         const key = `complement${i}`;
         if (breakdown[key]) {
             const colors = ['🟢', '🟠', '🔴', '🟣', '🟡'];
-            parts.push(`${colors[i-1]} ${breakdown[key]} complément ${i}`);
+            parts.push(`${colors[i-1]} ${breakdown[key]} complemento ${i}`);
         }
     }
     
@@ -1123,9 +1123,9 @@ function populateResultsList(elements) {
 // Créer une ligne de résultat
 function createResultRow(element, index, isComplement) {
     const tags = element.tags || {};
-    const name = tags.name || 'Sans nom';
-    const category = Object.keys(tags).find(key => config.categories[key]) || 'Inconnu';
-    const type = tags[category] || 'Non spécifié';
+    const name = tags.name || 'Sem nome';
+    const category = Object.keys(tags).find(key => config.categories[key]) || 'Desconhecido';
+    const type = tags[category] || 'Não especificado';
     const categoryLabel = config.categories[category]?.label || category;
     const typeLabel = config.categories[category]?.types[type] || type;
     
@@ -1168,7 +1168,7 @@ function createResultRow(element, index, isComplement) {
                 <button class="zoom-btn" onclick="zoomToResult(${index})" title="Zoomer sur la carte">
                     <i class="fas fa-search-plus"></i>
                 </button>
-                <a href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=18" target="_blank" class="external-link" title="Voir sur OSM">
+                <a href="https://www.openstreetmap.org/?mlat=${lat}&mlon=${lon}&zoom=18" target="_blank" class="external-link" title="Ver no OSM">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
@@ -1232,7 +1232,7 @@ function zoomToResult(resultIndex) {
         }
     });
     
-    showSuccess(`Zoom sur : ${element.tags?.name || 'Élément sélectionné'}`);
+    showSuccess(`Zoom em: ${element.tags?.name || 'Elemento selecionado'}`);
 }
 
 // Sélectionner une ligne de résultat
@@ -1303,7 +1303,7 @@ function exportJSON(data) {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
     
-    showSuccess('Rapport JSON téléchargé avec succès');
+    showSuccess('Relatório JSON baixado com sucesso');
 }
 
 // Exporter en CSV
@@ -1320,12 +1320,12 @@ function exportCSV(data) {
     document.body.removeChild(link);
     URL.revokeObjectURL(url);
     
-    showSuccess('Fichier CSV téléchargé avec succès');
+    showSuccess('Arquivo CSV baixado com sucesso');
 }
 
 // Générer le contenu CSV
 function generateCSV(elements) {
-    const headers = ['ID', 'Type', 'Nom', 'Catégorie', 'Sous-type', 'Latitude', 'Longitude', 'Tags'];
+    const headers = ['ID', 'Tipo', 'Nome', 'Categoria', 'Subtipo', 'Latitude', 'Longitude', 'Tags'];
     let csv = headers.join(',') + '\n';
     
     elements.forEach(element => {
@@ -1368,7 +1368,7 @@ async function copyQueryToClipboard() {
     const query = document.getElementById('queryDisplay').textContent;
     
     if (!query.trim()) {
-        showError('Aucune requête à copier');
+        showError('Nenhuma consulta para copiar');
         return;
     }
     
@@ -1377,7 +1377,7 @@ async function copyQueryToClipboard() {
         showSuccess('Requête copiée dans le presse-papiers');
     } catch (error) {
         console.error('Erreur lors de la copie:', error);
-        showError('Impossible de copier la requête');
+        showError('Impossível copiar a consulta');
     }
 }
 
@@ -1464,9 +1464,9 @@ function updateInterfaceForProximityMode() {
     conditionGroups.forEach((group, index) => {
         const conditionHeader = group.querySelector('.condition-number');
         if (index === 0) {
-            conditionHeader.textContent = 'Éléments à rechercher';
+            conditionHeader.textContent = 'Elementos a pesquisar';
         } else {
-            conditionHeader.textContent = `Critère de proximité ${index}`;
+            conditionHeader.textContent = `Critério de proximidade ${index}`;
         }
         
         // Ajouter des champs spécifiques au mode proximité
@@ -1476,7 +1476,7 @@ function updateInterfaceForProximityMode() {
     // Mettre à jour le texte du bouton d'ajout
     const addConditionBtn = document.getElementById('addCondition');
     if (addConditionBtn) {
-        addConditionBtn.innerHTML = '<i class="fas fa-plus"></i> Ajouter un critère de proximité';
+        addConditionBtn.innerHTML = '<i class="fas fa-plus"></i> Adicionar um critério de proximidade';
     }
 }
 
@@ -1505,17 +1505,17 @@ function addProximityFields(conditionGroup, index) {
             proximityFieldsDiv.className = 'proximity-fields';
             proximityFieldsDiv.innerHTML = `
                 <div class="field-group">
-                    <label>Distance minimale :</label>
+                    <label>Distância mínima:</label>
                     <div class="distance-input">
                         <input type="number" class="min-distance" min="0" max="50000" value="0">
-                        <span class="unit">mètres</span>
+                        <span class="unit">metros</span>
                     </div>
                 </div>
                 <div class="field-group">
-                    <label>Distance maximale :</label>
+                    <label>Distância máxima:</label>
                     <div class="distance-input">
                         <input type="number" class="max-distance" min="100" max="50000" value="1000">
-                        <span class="unit">mètres</span>
+                        <span class="unit">metros</span>
                     </div>
                 </div>
             `;
@@ -1574,7 +1574,7 @@ function buildProximityQuery(conditions) {
     
     // Construire les ensembles de référence pour chaque critère de proximité
     proximityConditions.forEach((condition, index) => {
-        query += `// Critère de proximité ${index + 1}: ${getConditionDescription(condition)}\n`;
+        query += `// Critério de proximidade ${index + 1}: ${getConditionDescription(condition)}\n`;
         query += '(\n';
         query += buildConditionQuery(condition, 'searchArea');
         query += `)->.proximity${index + 1};\n\n`;
@@ -1802,7 +1802,7 @@ function updateGeographicZones(level) {
     if (!geoZoneSelect) return;
     
     // Vider les options existantes
-    geoZoneSelect.innerHTML = '<option value="">Sélectionner une zone</option>';
+    geoZoneSelect.innerHTML = '<option value="">Selecionar uma zona</option>';
     
     if (!level || !config.geographicZones[level]) return;
     
@@ -1906,7 +1906,7 @@ function startBboxDrawing() {
     const drawBboxBtn = document.getElementById('drawBbox');
     const clearBboxBtn = document.getElementById('clearBbox');
     
-    drawBboxBtn.textContent = 'Cliquez et glissez sur la carte';
+    drawBboxBtn.textContent = 'Clique e arraste no mapa';
     drawBboxBtn.disabled = true;
     
     // Changer le curseur de la carte
@@ -2000,7 +2000,7 @@ function finalizeBoundingBox(start, end) {
     const drawBboxBtn = document.getElementById('drawBbox');
     const clearBboxBtn = document.getElementById('clearBbox');
     
-    drawBboxBtn.innerHTML = '<i class="fas fa-edit"></i> Redessiner la zone';
+    drawBboxBtn.innerHTML = '<i class="fas fa-edit"></i> Redesenhar a área';
     drawBboxBtn.disabled = false;
     clearBboxBtn.style.display = 'inline-flex';
 }
@@ -2039,7 +2039,7 @@ function clearBoundingBox() {
     const bboxDisplay = document.getElementById('bboxDisplay');
     const bboxCoords = document.getElementById('bboxCoords');
     
-    drawBboxBtn.innerHTML = '<i class="fas fa-draw-polygon"></i> Dessiner sur la carte';
+    drawBboxBtn.innerHTML = '<i class="fas fa-draw-polygon"></i> Desenhar no mapa';
     drawBboxBtn.disabled = false;
     clearBboxBtn.style.display = 'none';
     
@@ -2086,9 +2086,9 @@ function populateMainCategories() {
     if (!categorySelect) return;
     
     // Vider les options existantes sauf la première
-    categorySelect.innerHTML = '<option value="">Sélectionner une catégorie</option>';
+    categorySelect.innerHTML = '<option value="">Selecione uma categoria</option>';
     
-    // Ajouter les catégories depuis la configuration
+    // Adicionar as categorias da configuração
     Object.keys(config.categories).forEach(categoryKey => {
         const category = config.categories[categoryKey];
         const option = document.createElement('option');
@@ -2109,7 +2109,7 @@ function addComplement() {
     
     newComplement.innerHTML = `
         <div class="complement-header">
-            <span class="complement-title">Complément ${complementCount}</span>
+            <span class="complement-title">Complemento ${complementCount}</span>
             <div class="complement-operator">
                 <select class="operator" name="operator${complementCount}">
                     <option value="AND">ET</option>
@@ -2123,37 +2123,37 @@ function addComplement() {
         
         <div class="condition-fields">
             <div class="field-group">
-                <label>Catégorie :</label>
+                <label>Categoria:</label>
                 <select class="category" name="complementCategory${complementCount}" required>
-                    <option value="">Sélectionner une catégorie</option>
+                    <option value="">Selecionar uma categoria</option>
                 </select>
             </div>
             
             <div class="field-group">
-                <label>Types (sélection multiple) :</label>
+                <label>Tipos (seleção múltipla):</label>
                 <div class="types-container" name="complementTypes${complementCount}">
-                    <p class="no-types">Sélectionnez d'abord une catégorie</p>
+                    <p class="no-types">Selecione primeiro uma categoria</p>
                 </div>
             </div>
             
             <div class="field-group">
-                <label>Recherche par nom (optionnel) :</label>
+                <label>Pesquisa por nome (opcional):</label>
                 <div class="name-search">
                     <select class="name-mode" name="complementNameMode${complementCount}">
-                        <option value="">Ignorer le nom</option>
-                        <option value="exact">Nom exact</option>
-                        <option value="contains">Contient</option>
-                        <option value="starts">Commence par</option>
+                        <option value="">Ignorar o nome</option>
+                        <option value="exact">Nome exato</option>
+                        <option value="contains">Contém</option>
+                        <option value="starts">Começa com</option>
                     </select>
-                    <input type="text" class="name" name="complementName${complementCount}" placeholder="Texte à rechercher" disabled>
+                    <input type="text" class="name" name="complementName${complementCount}" placeholder="Texto a pesquisar" disabled>
                 </div>
             </div>
             
             <div class="field-group">
-                <label>Distance :</label>
+                <label>Distância:</label>
                 <div class="distance-input">
                     <input type="number" class="distance" name="complementDistance${complementCount}" min="1" max="50000" value="100">
-                    <span class="unit">mètres</span>
+                    <span class="unit">metros</span>
                 </div>
             </div>
         </div>
@@ -2260,12 +2260,12 @@ function buildNewStyleQuery() {
     const searchData = collectMainSearchAndComplements();
     
     if (!searchData.mainSearch) {
-        throw new Error('Veuillez définir la recherche principale');
+        throw new Error('Por favor, defina a pesquisa principal');
     }
     
     // Obtenir la bounding box
     if (!boundingBox) {
-        throw new Error('Veuillez dessiner une zone de recherche sur la carte');
+        throw new Error('Por favor, desenhe uma área de pesquisa no mapa');
     }
     
     const { south, west, north, east } = boundingBox;
@@ -2277,14 +2277,14 @@ function buildNewStyleQuery() {
         // 1. D'abord trouver les compléments dans la zone (éléments de référence)
         searchData.complements.forEach((complement, index) => {
             const complementName = getComplementVariableName(complement);
-            query += `// ${index + 1}. Trouver les ${getConditionDescription(complement)} dans la zone\n`;
+            query += `// ${index + 1}. Encontre o ${getConditionDescription(complement)} na área\n`;
             query += '(\n';
             query += buildMainSearchQuery(complement);
             query += `)->.${complementName};\n\n`;
         });
         
         // 2. Chercher les éléments principaux dans la zone avec contraintes de proximité
-        query += `// ${searchData.complements.length + 1}. Trouver les ${getConditionDescription(searchData.mainSearch)} dans la zone`;
+        query += `// ${searchData.complements.length + 1}. Encontre o ${getConditionDescription(searchData.mainSearch)} na área`;
         
         // Ajouter les contraintes de proximité dans le titre
         const proximityDescriptions = searchData.complements.map((comp, index) => 
@@ -2334,22 +2334,22 @@ function buildNewStyleQuery() {
         query += `)->.main_results;\n\n`;
         
         // 3. Sortir tous les résultats avec des tags pour les identifier
-        query += '// Sortir les résultats principaux\n';
-        query += '.main_results out center;\n\n';
+        query += '// Resultados principais de saída\n';
+        query += '.main_results fora do centro;\n\n';
         
         // 4. Sortir les compléments avec des tags pour les identifier
         searchData.complements.forEach((complement, index) => {
             const complementName = getComplementVariableName(complement);
-            query += `// Sortir les ${getConditionDescription(complement)}\n`;
-            query += `.${complementName} out center;\n`;
+            query += `// Tire-os ${getConditionDescription(complement)}\n`;
+            query += `.${complementName} fora do centro;\n`;
             if (index < searchData.complements.length - 1) query += '\n';
         });
     } else {
         // Si pas de compléments, recherche simple des éléments principaux
-        query += '// 1. Trouver les éléments principaux dans la zone\n';
+        query += '// 1. Encontre os principais itens da área\n';
         query += '(\n';
         query += buildMainSearchQuery(searchData.mainSearch);
-        query += ');\nout center;';
+        query += ');\nfora do centro;';
     }
     
     return query;
@@ -2562,7 +2562,7 @@ async function searchAddresses(query) {
     
     try {
         // Afficher un indicateur de chargement
-        addressSuggestions.innerHTML = '<div class="address-suggestion">🔍 Recherche en cours...</div>';
+        addressSuggestions.innerHTML = '<div class="address-suggestion">🔍 Pesquisa em andamento...</div>';
         addressSuggestions.style.display = 'block';
         
         // Construire l'URL de l'API Nominatim
@@ -2570,7 +2570,7 @@ async function searchAddresses(query) {
         
         const response = await fetch(nominatimUrl, {
             headers: {
-                'User-Agent': 'OSINT-Recherche-Overpass/1.0'
+                'User-Agent': 'OSINT-Pesquisa-Overpass/1.0'
             }
         });
         
@@ -2584,8 +2584,8 @@ async function searchAddresses(query) {
         displayAddressSuggestions(results);
         
     } catch (error) {
-        console.error('Erreur lors de la recherche d\'adresse:', error);
-        addressSuggestions.innerHTML = '<div class="address-suggestion">❌ Erreur lors de la recherche</div>';
+        console.error('Erro na pesquisa de endereço:', error);
+        addressSuggestions.innerHTML = '<div class="address-suggestion">❌ Erro na pesquisa</div>';
         addressSuggestions.style.display = 'block';
         
         setTimeout(() => {
@@ -2594,12 +2594,12 @@ async function searchAddresses(query) {
     }
 }
 
-// Afficher les suggestions d'adresses
+// Exibir as sugestões de endereços
 function displayAddressSuggestions(results) {
     const addressSuggestions = document.getElementById('addressSuggestions');
     
     if (!results || results.length === 0) {
-        addressSuggestions.innerHTML = '<div class="address-suggestion">🚫 Aucune adresse trouvée</div>';
+        addressSuggestions.innerHTML = '<div class="address-suggestion">🚫 Nenhum endereço encontrado</div>';
         addressSuggestions.style.display = 'block';
         
         setTimeout(() => {
@@ -2615,13 +2615,13 @@ function displayAddressSuggestions(results) {
         const lat = parseFloat(result.lat);
         const lon = parseFloat(result.lon);
         const displayName = result.display_name;
-        const type = result.type || 'Lieu';
+        const type = result.type || 'Local';
         
-        // Extraire les informations principales
+        // Extrair as informações principais
         const address = result.address || {};
         const name = address.house_number && address.road 
             ? `${address.house_number} ${address.road}`
-            : address.road || address.village || address.town || address.city || result.name || 'Sans nom';
+            : address.road || address.village || address.town || address.city || result.name || 'Sem nome';
         
         const location = [address.city, address.town, address.village, address.county]
             .filter(Boolean)
@@ -2658,14 +2658,14 @@ function displayAddressSuggestions(results) {
     });
 }
 
-// Zoomer sur une adresse
+// Dar zoom em um endereço
 function zoomToAddress(lat, lon, name) {
     if (!map) return;
     
-    // Zoomer sur l'adresse
+    // Dar zoom no endereço
     map.setView([lat, lon], 16);
     
-    // Ajouter un marqueur temporaire
+    // Adicionar um marcador temporário
     const addressMarker = L.marker([lat, lon], {
         icon: L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
@@ -2677,15 +2677,15 @@ function zoomToAddress(lat, lon, name) {
         })
     }).addTo(map);
     
-    // Popup avec les informations de l'adresse
+    // Popup com as informações do endereço
     const popupContent = `
         <div>
-            <h4>📍 Adresse recherchée</h4>
+            <h4>📍 Endereço pesquisado</h4>
             <p><strong>${name}</strong></p>
-            <p><strong>Coordonnées:</strong> ${lat.toFixed(6)}, ${lon.toFixed(6)}</p>
+            <p><strong>Coordenadas:</strong> ${lat.toFixed(6)}, ${lon.toFixed(6)}</p>
             <div style="margin-top: 10px;">
                 <button onclick="removeAddressMarker()" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
-                    Supprimer ce marqueur
+                    Remover este marcador
                 </button>
             </div>
         </div>
@@ -2693,22 +2693,22 @@ function zoomToAddress(lat, lon, name) {
     
     addressMarker.bindPopup(popupContent).openPopup();
     
-    // Stocker la référence du marqueur pour pouvoir le supprimer
+    // Armazenar a referência do marcador para poder removê-lo
     window.currentAddressMarker = addressMarker;
     
-    showSuccess(`Adresse trouvée : ${name}`);
+    showSuccess(`Endereço encontrado: ${name}`);
 }
 
-// Supprimer le marqueur d'adresse
+// Remover o marcador de endereço
 function removeAddressMarker() {
     if (window.currentAddressMarker) {
         map.removeLayer(window.currentAddressMarker);
         window.currentAddressMarker = null;
-        showSuccess('Marqueur d\'adresse supprimé');
+        showSuccess('Marcador de endereço removido');
     }
 }
 
-// Fonctions utilitaires globales
+// Funções utilitárias globais
 window.removeCondition = removeCondition;
 window.removeComplement = removeComplement;
 window.removeAddressMarker = removeAddressMarker;

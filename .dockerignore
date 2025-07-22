@@ -1,0 +1,24 @@
+# Arquivos do Git
+.git/
+.gitignore
+
+# Arquivos de documentação
+README.md
+LICENSE
+
+# Arquivos de desenvolvimento
+node_modules/
+npm-debug.log*
+
+# Arquivos do Docker
+Dockerfile
+.dockerignore
+
+# Arquivos temporários
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log 

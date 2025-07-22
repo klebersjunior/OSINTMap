@@ -1,252 +1,251 @@
-# OSINTMap - Outil d'Investigation Géospatiale
+# OSINTMap - Ferramenta de Investigação Geoespacial
 
-Un outil web professionnel pour l'investigation géospatiale utilisant l'API Overpass d'OpenStreetMap. Conçu pour les analystes OSINT, enquêteurs et chercheurs nécessitant des recherches géographiques précises avec contraintes de proximité.
+Uma ferramenta web profissional para investigação geoespacial usando a API Overpass do OpenStreetMap. Projetada para analistas OSINT, investigadores e pesquisadores que precisam de pesquisas geográficas precisas com restrições de proximidade.
 
 ![image](https://github.com/user-attachments/assets/c888b8f1-96a7-4fa9-b19d-58717eaa417e)
 
+## 🎯 Funcionalidades Principais
 
-## 🎯 Fonctionnalités Principales
+### 🗺️ **Pesquisa Geoespacial Avançada**
+- **Área de pesquisa personalizada**: Desenhe sua área de investigação diretamente no mapa
+- **Pesquisa principal**: Defina os elementos que você procura (escolas, hospitais, comércios, etc.)
+- **Complementos de proximidade**: Adicione até 5 critérios de proximidade com distâncias personalizadas
+- **Filtros por nome**: Pesquisa exata, contém, ou começa com
 
-### 🗺️ **Recherche Géospatiale Avancée**
-- **Zone de recherche personnalisée** : Dessinez votre zone d'investigation directement sur la carte
-- **Recherche principale** : Définissez les éléments que vous cherchez (écoles, hôpitaux, commerces, etc.)
-- **Compléments de proximité** : Ajoutez jusqu'à 5 critères de proximité avec distances personnalisées
-- **Filtres par nom** : Recherche exacte, contient, ou commence par
+### 🎨 **Visualização Interativa**
+- **Marcadores coloridos**: Diferenciação visual automática dos tipos de elementos
+  - 🔵 **Azul**: Resultados principais da sua pesquisa
+  - 🟢 **Verde**: Primeiro complemento (elemento de referência)
+  - 🟠 **Laranja**: Segundo complemento
+  - 🔴 **Vermelho**: Terceiro complemento
+  - 🟣 **Roxo**: Quarto complemento
+  - 🟡 **Amarelo**: Quinto complemento
 
-### 🎨 **Visualisation Interactive**
-- **Marqueurs colorés** : Différenciation visuelle automatique des types d'éléments
-  - 🔵 **Bleu** : Résultats principaux de votre recherche
-  - 🟢 **Vert** : Premier complément (élément de référence)
-  - 🟠 **Orange** : Deuxième complément
-  - 🔴 **Rouge** : Troisième complément
-  - 🟣 **Violet** : Quatrième complément
-  - 🟡 **Jaune** : Cinquième complément
+### 📍 **Pesquisa de Endereço Integrada**
+- **Geocodificação em tempo real**: Pesquise qualquer endereço com a API Nominatim
+- **Sugestões automáticas**: Propostas de endereços durante a digitação
+- **Zoom automático**: Navegação direta para o endereço selecionado
+- **Marcador temporário**: Visualização do endereço com possibilidade de remoção
 
-### 📍 **Recherche d'Adresse Intégrée**
-- **Géocodage en temps réel** : Recherchez n'importe quelle adresse avec l'API Nominatim
-- **Suggestions automatiques** : Propositions d'adresses pendant la saisie
-- **Zoom automatique** : Navigation directe vers l'adresse sélectionnée
-- **Marqueur temporaire** : Visualisation de l'adresse avec possibilité de suppression
+### 📊 **Interface de Resultados Separada**
+- **Tabela dos resultados principais**: Lista dos elementos encontrados correspondentes à sua pesquisa
+- **Tabela dos complementos**: Lista separada dos elementos de referência usados para as restrições de proximidade
+- **Zoom interativo**: Clique em uma linha para dar zoom no mapa
+- **Links externos**: Acesso direto ao OpenStreetMap e Google Street View
 
-### 📊 **Interface de Résultats Séparée**
-- **Table des résultats principaux** : Liste des éléments trouvés correspondant à votre recherche
-- **Table des compléments** : Liste séparée des éléments de référence utilisés pour les contraintes de proximité
-- **Zoom interactif** : Clic sur une ligne pour zoomer sur la carte
-- **Liens externes** : Accès direct à OpenStreetMap et Google Street View
+### 📤 **Exportação e Compartilhamento**
+- **Exportação JSON**: Relatório completo com metadados e consulta Overpass
+- **Exportação CSV**: Dados tabulares para análise no Excel/LibreOffice
+- **Cópia de consulta**: Consulta Overpass gerada copiável para uso externo
 
-### 📤 **Export et Partage**
-- **Export JSON** : Rapport complet avec métadonnées et requête Overpass
-- **Export CSV** : Données tabulaires pour analyse dans Excel/LibreOffice
-- **Copie de requête** : Requête Overpass générée copiable pour utilisation externe
+## 🚀 Guia de Uso
 
-## 🚀 Guide d'Utilisation
+### 1. **Definir a Área de Pesquisa**
 
-### 1. **Définir la Zone de Recherche**
+1. Clique em **"Desenhar no mapa"**
+2. Clique e arraste no mapa para criar um retângulo de pesquisa
+3. A área aparece em laranja com as coordenadas exibidas
+4. Use **"Limpar a área"** para recomeçar se necessário
 
-1. Cliquez sur **"Dessiner sur la carte"**
-2. Cliquez et glissez sur la carte pour créer un rectangle de recherche
-3. La zone apparaît en orange avec les coordonnées affichées
-4. Utilisez **"Effacer la zone"** pour recommencer si nécessaire
+### 2. **Configurar a Pesquisa Principal**
 
-### 2. **Configurer la Recherche Principale**
+1. **Selecione uma categoria**: Serviços, Transporte, Edifícios, etc.
+2. **Escolha os tipos**: Marque os tipos específicos (ex: restaurante, escola)
+3. **Filtro por nome** (opcional):
+   - **Nome exato**: Pesquisa precisa
+   - **Contém**: O nome contém o texto
+   - **Começa com**: O nome começa com o texto
 
-1. **Sélectionnez une catégorie** : Services, Transport, Bâtiments, etc.
-2. **Choisissez les types** : Cochez les types spécifiques (ex: restaurant, école)
-3. **Filtrage par nom** (optionnel) :
-   - **Nom exact** : Recherche précise
-   - **Contient** : Le nom contient le texte
-   - **Commence par** : Le nom commence par le texte
+### 3. **Adicionar Complementos de Proximidade**
 
-### 3. **Ajouter des Compléments de Proximité**
+1. Clique em **"Adicionar um complemento"**
+2. Configure cada complemento:
+   - **Categoria e tipos**: Como para a pesquisa principal
+   - **Distância**: Raio de proximidade em metros
+   - **Nome**: Filtro opcional por nome
+3. Repita para até 5 complementos
 
-1. Cliquez sur **"Ajouter un complément"**
-2. Configurez chaque complément :
-   - **Catégorie et types** : Comme pour la recherche principale
-   - **Distance** : Rayon de proximité en mètres
-   - **Nom** : Filtrage optionnel par nom
-3. Répétez pour jusqu'à 5 compléments
+### 4. **Executar a Pesquisa**
 
-### 4. **Lancer la Recherche**
+1. Clique em **"Pesquisar"**
+2. Aguarde o carregamento (indicador de progresso)
+3. Os resultados aparecem no mapa com cores distintas
 
-1. Cliquez sur **"Rechercher"**
-2. Attendez le chargement (indicateur de progression)
-3. Les résultats apparaissent sur la carte avec des couleurs distinctes
+### 5. **Analisar os Resultados**
 
-### 5. **Analyser les Résultats**
+#### **No Mapa:**
+- **Marcadores coloridos**: Cada tipo de elemento tem sua cor
+- **Popups informativos**: Clique em um marcador para ver os detalhes
+- **Clique direito**: Acesso direto ao OpenStreetMap
 
-#### **Sur la Carte :**
-- **Marqueurs colorés** : Chaque type d'élément a sa couleur
-- **Popups informatifs** : Clic sur un marqueur pour voir les détails
-- **Clic droit** : Accès direct à OpenStreetMap
+#### **Nas Listas:**
+- **🎯 Resultados da pesquisa**: Seus elementos alvo
+- **📍 Elementos de referência**: Os complementos usados para as restrições
+- **Zoom interativo**: Clique em uma linha para dar zoom no mapa
+- **Seleção visual**: Linha selecionada destacada
 
-#### **Dans les Listes :**
-- **🎯 Résultats de la recherche** : Vos éléments cibles
-- **📍 Éléments de référence** : Les compléments utilisés pour les contraintes
-- **Zoom interactif** : Clic sur une ligne pour zoomer sur la carte
-- **Sélection visuelle** : Ligne sélectionnée mise en évidence
+### 6. **Navegação e Ferramentas**
 
-### 6. **Navigation et Outils**
+#### **Pesquisa de Endereço:**
+1. Digite um endereço no campo de pesquisa
+2. Selecione uma sugestão
+3. O mapa dá zoom automaticamente no endereço
+4. Um marcador vermelho temporário é adicionado
 
-#### **Recherche d'Adresse :**
-1. Tapez une adresse dans le champ de recherche
-2. Sélectionnez une suggestion
-3. La carte zoome automatiquement sur l'adresse
-4. Un marqueur rouge temporaire est ajouté
+#### **Exportação dos Dados:**
+- **JSON**: Relatório completo com metadados
+- **CSV**: Dados para planilha
+- **Consulta**: Código Overpass para reutilização
 
-#### **Export des Données :**
-- **JSON** : Rapport complet avec métadonnées
-- **CSV** : Données pour tableur
-- **Requête** : Code Overpass pour réutilisation
+## 📋 Exemplos de Uso
 
-## 📋 Exemples d'Utilisation
-
-### **Exemple 1 : Écoles près de transports**
+### **Exemplo 1: Escolas perto de transporte**
 ```
-Zone : Dessiner autour d'une ville
-Recherche principale : Catégorie "Services" → Type "École"
-Complément 1 : Catégorie "Transport" → Type "Arrêt de bus" → Distance 300m
-Résultat : Toutes les écoles à moins de 300m d'un arrêt de bus
-```
-
-### **Exemple 2 : Restaurants avec parking et banque**
-```
-Zone : Centre-ville
-Recherche principale : Catégorie "Services" → Type "Restaurant"
-Complément 1 : Catégorie "Services" → Type "Parking" → Distance 200m
-Complément 2 : Catégorie "Services" → Type "Banque" → Distance 500m
-Résultat : Restaurants avec parking à 200m ET banque à 500m
+Área: Desenhar ao redor de uma cidade
+Pesquisa principal: Categoria "Serviços" → Tipo "Escola"
+Complemento 1: Categoria "Transporte" → Tipo "Ponto de ônibus" → Distância 300m
+Resultado: Todas as escolas a menos de 300m de um ponto de ônibus
 ```
 
-### **Exemple 3 : Recherche par nom spécifique**
+### **Exemplo 2: Restaurantes com estacionamento e banco**
 ```
-Zone : Région
-Recherche principale : Catégorie "Services" → Type "École" → Nom contient "Ferdinand"
-Complément 1 : Catégorie "Services" → Type "Bureau de poste" → Distance 1000m
-Résultat : Écoles contenant "Ferdinand" avec bureau de poste à 1km
+Área: Centro da cidade
+Pesquisa principal: Categoria "Serviços" → Tipo "Restaurante"
+Complemento 1: Categoria "Serviços" → Tipo "Estacionamento" → Distância 200m
+Complemento 2: Categoria "Serviços" → Tipo "Banco" → Distância 500m
+Resultado: Restaurantes com estacionamento a 200m E banco a 500m
 ```
 
-## 🎨 Interface Utilisateur
+### **Exemplo 3: Pesquisa por nome específico**
+```
+Área: Região
+Pesquisa principal: Categoria "Serviços" → Tipo "Escola" → Nome contém "Dom Pedro"
+Complemento 1: Categoria "Serviços" → Tipo "Correios" → Distância 1000m
+Resultado: Escolas contendo "Dom Pedro" com correios a 1km
+```
 
-### **Panneau de Recherche (Gauche)**
-- Configuration de la zone de recherche
-- Paramètres de recherche principale
-- Gestion des compléments de proximité
-- Affichage de la requête Overpass générée
+## 🎨 Interface do Usuário
 
-### **Panneau de Résultats (Droite)**
-- Carte interactive avec marqueurs colorés
-- Recherche d'adresse intégrée
-- Compteur de résultats avec répartition par type
-- Listes séparées des résultats et compléments
-- Boutons d'export
+### **Painel de Pesquisa (Esquerda)**
+- Configuração da área de pesquisa
+- Parâmetros de pesquisa principal
+- Gerenciamento dos complementos de proximidade
+- Exibição da consulta Overpass gerada
 
-## 🔧 Fonctionnalités Techniques
+### **Painel de Resultados (Direita)**
+- Mapa interativo com marcadores coloridos
+- Pesquisa de endereço integrada
+- Contador de resultados com distribuição por tipo
+- Listas separadas dos resultados e complementos
+- Botões de exportação
 
-### **Requêtes Overpass Optimisées**
-- Génération automatique de requêtes complexes
-- Support des contraintes de proximité multiples
-- Gestion des bounding box personnalisées
-- Filtrage par nom avec expressions régulières
+## 🔧 Funcionalidades Técnicas
 
-### **Visualisation Avancée**
-- Marqueurs Leaflet avec icônes colorées
-- Popups informatifs avec liens externes
-- Zoom automatique sur les résultats
-- Synchronisation carte-liste bidirectionnelle
+### **Consultas Overpass Otimizadas**
+- Geração automática de consultas complexas
+- Suporte para restrições de proximidade múltiplas
+- Gerenciamento de bounding boxes personalizadas
+- Filtro por nome com expressões regulares
 
-### **Performance et Fiabilité**
-- Serveurs Overpass multiples avec basculement automatique
-- Gestion d'erreurs robuste
-- Interface responsive pour tous écrans
-- Timeout configurable pour les requêtes
+### **Visualização Avançada**
+- Marcadores Leaflet com ícones coloridos
+- Popups informativos com links externos
+- Zoom automático nos resultados
+- Sincronização bidirecional mapa-lista
 
-## 📊 Types de Données Supportés
+### **Performance e Confiabilidade**
+- Servidores Overpass múltiplos com alternância automática
+- Tratamento de erros robusto
+- Interface responsiva para todas as telas
+- Timeout configurável para as consultas
 
-### **Catégories Principales :**
-- **Services et équipements** : Restaurants, banques, hôpitaux, écoles, etc.
-- **Transport** : Routes, arrêts, gares, ponts, etc.
-- **Bâtiments** : Résidentiel, commercial, industriel, public, etc.
-- **Éléments naturels** : Eau, forêts, parcs, plages, etc.
-- **Commerces** : Supermarchés, boutiques, pharmacies, etc.
-- **Tourisme** : Hôtels, attractions, musées, etc.
-- **Sites historiques** : Monuments, châteaux, ruines, etc.
-- **Militaire** : Bases, bunkers, zones d'entraînement, etc.
-- **Urgences** : Pompiers, ambulances, défibrillateurs, etc.
-- **Transport ferroviaire** : Gares, métro, tramway, etc.
+## 📊 Tipos de Dados Suportados
 
-### **Filtres Disponibles :**
-- **Par catégorie** : Recherche large par type d'élément
-- **Par type spécifique** : Sélection multiple de sous-types
-- **Par nom** : Filtrage textuel avec modes exact/contient/commence
-- **Par proximité** : Contraintes de distance avec éléments de référence
+### **Categorias Principais:**
+- **Serviços e equipamentos**: Restaurantes, bancos, hospitais, escolas, etc.
+- **Transporte**: Estradas, pontos, estações, pontes, etc.
+- **Edifícios**: Residencial, comercial, industrial, público, etc.
+- **Elementos naturais**: Água, florestas, parques, praias, etc.
+- **Comércios**: Supermercados, lojas, farmácias, etc.
+- **Turismo**: Hotéis, atrações, museus, etc.
+- **Sítios históricos**: Monumentos, castelos, ruínas, etc.
+- **Militar**: Bases, bunkers, áreas de treinamento, etc.
+- **Emergências**: Bombeiros, ambulâncias, desfibriladores, etc.
+- **Transporte ferroviário**: Estações, metrô, bonde, etc.
 
-## 🛠️ Installation et Configuration
+### **Filtros Disponíveis:**
+- **Por categoria**: Pesquisa ampla por tipo de elemento
+- **Por tipo específico**: Seleção múltipla de subtipos
+- **Por nome**: Filtro textual com modos exato/contém/começa
+- **Por proximidade**: Restrições de distância com elementos de referência
 
-### **Prérequis**
-- Navigateur web moderne (Chrome, Firefox, Safari, Edge)
-- Connexion Internet pour les API externes
+## 🛠️ Instalação e Configuração
 
-### **Utilisation**
-1. Ouvrez `index.html` dans votre navigateur
-2. L'application se charge automatiquement
-3. Aucune installation ou configuration supplémentaire requise
+### **Pré-requisitos**
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- Conexão com a Internet para as APIs externas
 
-### **APIs Utilisées**
-- **Overpass API** : Données OpenStreetMap
-- **Nominatim** : Géocodage d'adresses
-- **Leaflet** : Cartographie interactive
+### **Uso**
+1. Abra `index.html` no seu navegador
+2. A aplicação carrega automaticamente
+3. Nenhuma instalação ou configuração adicional necessária
 
-## 🔍 Cas d'Usage OSINT
+### **APIs Utilizadas**
+- **Overpass API**: Dados do OpenStreetMap
+- **Nominatim**: Geocodificação de endereços
+- **Leaflet**: Cartografia interativa
 
-### **Investigation Urbaine**
-- Localiser des établissements avec contraintes spécifiques
-- Analyser la densité de services dans une zone
-- Identifier des patterns géographiques suspects
+## 🔍 Casos de Uso OSINT
 
-### **Recherche de Personnes**
-- Trouver des lieux fréquentés avec critères multiples
-- Analyser l'environnement autour d'adresses connues
-- Identifier des points d'intérêt dans un périmètre
+### **Investigação Urbana**
+- Localizar estabelecimentos com restrições específicas
+- Analisar a densidade de serviços em uma área
+- Identificar padrões geográficos suspeitos
 
-### **Analyse de Sécurité**
-- Évaluer l'accessibilité aux services d'urgence
-- Identifier les infrastructures critiques
-- Analyser les voies d'accès et de fuite
+### **Pesquisa de Pessoas**
+- Encontrar locais frequentados com critérios múltiplos
+- Analisar o ambiente ao redor de endereços conhecidos
+- Identificar pontos de interesse em um perímetro
 
-### **Recherche Académique**
-- Études de géographie urbaine
-- Analyse de l'accessibilité aux services
-- Recherche en aménagement du territoire
+### **Análise de Segurança**
+- Avaliar a acessibilidade aos serviços de emergência
+- Identificar as infraestruturas críticas
+- Analisar as vias de acesso e fuga
 
-## 📝 Notes Techniques
+### **Pesquisa Acadêmica**
+- Estudos de geografia urbana
+- Análise da acessibilidade aos serviços
+- Pesquisa em planejamento territorial
 
-### **Limitations**
-- Dépendant de la qualité des données OpenStreetMap
-- Timeout de 25 secondes pour les requêtes complexes
-- Limitation à 5 compléments de proximité simultanés
+## 📝 Notas Técnicas
 
-### **Optimisations**
-- Requêtes optimisées pour réduire la charge serveur
-- Cache des résultats pour éviter les requêtes répétées
-- Interface responsive pour tous types d'écrans
+### **Limitações**
+- Dependente da qualidade dos dados do OpenStreetMap
+- Timeout de 25 segundos para consultas complexas
+- Limitação a 5 complementos de proximidade simultâneos
 
-### **Sécurité**
-- Aucune donnée personnelle stockée
-- Requêtes anonymes vers les APIs publiques
-- Code source ouvert et auditable
+### **Otimizações**
+- Consultas otimizadas para reduzir a carga do servidor
+- Cache dos resultados para evitar consultas repetidas
+- Interface responsiva para todos os tipos de tela
 
-## 🆘 Support et Dépannage
+### **Segurança**
+- Nenhum dado pessoal armazenado
+- Consultas anônimas para as APIs públicas
+- Código fonte aberto e auditável
 
-### **Problèmes Courants**
-- **Pas de résultats** : Vérifiez la zone de recherche et les critères
-- **Erreur de serveur** : L'outil bascule automatiquement vers un autre serveur
-- **Carte ne se charge pas** : Vérifiez votre connexion Internet
+## 🆘 Suporte e Solução de Problemas
 
-### **Conseils d'Utilisation**
-- Commencez par des zones de recherche petites
-- Utilisez des distances de proximité raisonnables (< 5km)
-- Testez d'abord sans filtres par nom pour valider la zone
+### **Problemas Comuns**
+- **Nenhum resultado**: Verifique a área de pesquisa e os critérios
+- **Erro do servidor**: A ferramenta alterna automaticamente para outro servidor
+- **Mapa não carrega**: Verifique sua conexão com a Internet
+
+### **Dicas de Uso**
+- Comece com áreas de pesquisa pequenas
+- Use distâncias de proximidade razoáveis (< 5km)
+- Teste primeiro sem filtros por nome para validar a área
 
 ---
 
-**Développé pour la communauté OSINT** - Outil libre et open source pour l'investigation géospatiale professionnelle.
+**Desenvolvido para a comunidade OSINT** - Ferramenta livre e de código aberto para investigação geoespacial profissional.

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  osintmap:
+    build: .
+    container_name: osintmap-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    volumes:
+      # Volume para logs (opcional)
+      - ./logs:/var/log/nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.osintmap.rule=Host(`osintmap.localhost`)"
+      - "traefik.http.services.osintmap.loadbalancer.server.port=80"
+
+networks:
+  default:
+    name: osintmap-network 
